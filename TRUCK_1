@@ -1,0 +1,40 @@
+public class truck extends vehicle {
+    private Integer cargoCapacity;
+
+    public truck(String merk, Integer tahun, Double hargaRental, Integer cargoCapacity) {
+        super(merk, tahun, hargaRental);
+        this.cargoCapacity = cargoCapacity;
+    }
+
+    public Integer getCargoCapacity() {
+        return cargoCapacity;
+    }
+
+    public void setCargoCapacity(Integer cargoCapacity) {
+        this.cargoCapacity = cargoCapacity;
+    }
+    @Override
+    public double Diskon() {
+        double Diskon = super.Diskon();
+        if(cargoCapacity > 2000) {
+            Diskon += 0.15;
+        }
+        return Diskon;
+    }
+
+    double hargaSetelahDiskon (){
+        return getHargaRental()-HargaDiskon();
+    }
+    @Override
+    public void displayInfo(){
+        System.out.println("Detail Truk :");
+        System.out.println("Merk :" + getMerk());
+        System.out.println("Tahun :" + getTahun());
+        System.out.println("Harga Sewa :" + getHargaRental());
+        System.out.println("Kapasitas kargo :" + cargoCapacity);
+        System.out.println("Total Diskon :" + HargaDiskon());
+        System.out.println("Harga sewa setelah diskon :" + hargaSetelahDiskon());
+        System.out.println("-------------------------------------------------------");
+    }
+
+}

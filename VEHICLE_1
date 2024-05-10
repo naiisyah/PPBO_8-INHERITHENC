@@ -1,0 +1,59 @@
+public class vehicle {
+    private String merk;
+    private Integer tahun;
+    private Double hargaRental;
+
+    public vehicle(String merk, Integer tahun, Double hargaRental) {
+        this.merk = merk;
+        this.tahun = tahun;
+        this.hargaRental = hargaRental;
+    }
+
+    public String getMerk() {
+        return merk;
+    }
+
+    public void setMerk(String merk) {
+        this.merk = merk;
+    }
+
+    public Integer getTahun() {
+        return tahun;
+    }
+
+    public void setTahun(Integer tahun) {
+        this.tahun = tahun;
+    }
+
+    public Double getHargaRental() {
+        return hargaRental;
+    }
+
+    public void setHargaRental(Double hargaRental) {
+        this.hargaRental = hargaRental;
+    }
+
+    public double Diskon() {
+        double Diskon = 0.0;
+        if (tahun < 2010) {
+            Diskon += 0.1;
+        }
+        return Diskon;
+    }
+
+    double HargaDiskon(){
+        return Diskon() * hargaRental;
+    }
+    double hargaSetelahDiskon (){
+        return hargaRental-HargaDiskon();
+    }
+     public void displayInfo(){
+        System.out.println("Detail Kendaraan :");
+        System.out.println("Merk :" + merk);
+        System.out.println("Tahun :" + tahun);
+        System.out.println("Harga Sewa :" + hargaRental);
+        System.out.println("Total Diskon :" + HargaDiskon());
+        System.out.println("Harga sewa setelah diskon :" + hargaSetelahDiskon());
+        System.out.println("-------------------------------------------------------");
+     }
+}

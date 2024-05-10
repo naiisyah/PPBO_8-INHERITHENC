@@ -1,0 +1,21 @@
+public class Main {
+    public static void main(String[] args) {
+        car innova = new car("innova Reborn", 2015, 500.0, car.CarType.PREMIUM_CAR);
+        car avanza = new car("Avanza", 2009, 300.0, car.CarType.FAMILY_CAR);
+        car brio = new car("Honda Brio", 2012, 300.0, car.CarType.CITY_CAR);
+
+        innova.displayInfo();
+        avanza.displayInfo();
+        brio.displayInfo();
+
+        truck isuzuTruck = new truck("Isuzu", 2013, 500.0, 1500);
+        truck volvoTruck = new truck("Volvo", 2013, 650.0, 2500);
+        truck hinoTruck = new truck("Hino", 2005, 800.0, 4000);
+        truck mitsubishiTruck = new truck("Mitsubishi", 2010, 850.0, 4000);
+
+        isuzuTruck.displayInfo();
+        volvoTruck.displayInfo();
+        hinoTruck.displayInfo();
+        mitsubishiTruck.displayInfo();
+    }
+}

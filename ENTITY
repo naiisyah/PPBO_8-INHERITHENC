@@ -1,0 +1,36 @@
+public class Entity {
+    private Integer Level;
+    Integer hp;
+
+    public Entity(Integer Level, Integer hp){
+        this.Level = Level;
+        this.hp = hp;
+    }
+
+    public Integer getLevel() {
+        return Level;
+    }
+
+    public void setLevel(Integer level) {
+        Level = level;
+    }
+
+    public Integer getHp() {
+        return hp;
+    }
+
+    public void setHp(Integer hp) {
+        this.hp = hp;
+    }
+    public void entityInfo(){
+        System.out.println("# Info boss :" + "LEVEL :" + Level + "HP :" + hp);
+    }
+
+    public boolean Hidupkah(){
+        if (getHp() > 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+}

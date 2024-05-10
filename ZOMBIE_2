@@ -1,0 +1,40 @@
+public class Zombi extends Entity {
+    enum ZombiType{
+        MEELE, RANGED
+    }
+    private ZombiType zombiType;
+
+    public Zombi(Integer Level, Integer hp, ZombiType zombiType){
+        super(Level, hp);
+        this.zombiType = zombiType;
+    }
+    @Override
+    public void entityInfo(){
+        System.out.println("# ZOMBIE DENGAN TIPE :" + zombiType + ", DAN LEVEL :" + getLevel());
+    }
+
+    public  int damage(ZombiType zombiType){
+        int damage = 0;
+        if(zombiType == ZombiType.MEELE){
+            damage = 20;
+        }else{
+            damage = 15;
+        }
+        return damage;
+    }
+
+    public void attack(Player player){
+        if (Hidupkah()){
+            if (player.Hidupkah()){
+                player.setHp(player.getHp() - damage(zombiType));
+                System.out.println("Player : UGHH");
+                if (!player.Hidupkah()){
+                    System.out.println("# YOU DIE, GAME OVER");
+                }
+            }
+        } else {
+            System.out.println("# ZOMBIE SUDAH MATI");
+        }
+    }
+
+}

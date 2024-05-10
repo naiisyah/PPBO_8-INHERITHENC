@@ -1,0 +1,45 @@
+public class car extends vehicle {
+    enum CarType{
+        CITY_CAR, FAMILY_CAR, PREMIUM_CAR
+    }
+    private CarType cartype;
+
+    public car(String merk, Integer tahun, Double hargaRental, CarType cartype) {
+        super(merk, tahun, hargaRental);
+        this.cartype = cartype;
+    }
+
+    public CarType getCartype() {
+        return cartype;
+    }
+
+    public void setCartype(CarType cartype) {
+        this.cartype = cartype;
+    }
+    @Override
+    public double Diskon() {
+        double Diskon = super.Diskon();
+        if (getCartype() == CarType.FAMILY_CAR){
+            Diskon += 0.05;
+        }
+        if (getCartype() == CarType.PREMIUM_CAR){
+            Diskon += 0.1;
+        }
+        return Diskon;
+    }
+
+    double hargaSetelahDiskon (){
+        return getHargaRental()-HargaDiskon();
+    }
+    @Override
+    public void displayInfo(){
+        System.out.println("Detail Mobil :");
+        System.out.println("Merk :" + getMerk());
+        System.out.println("Tahun :" + getTahun());
+        System.out.println("Harga Sewa :" + getHargaRental());
+        System.out.println("Tipe Mobil : " + cartype);
+        System.out.println("Total Diskon :" + HargaDiskon());
+        System.out.println("Harga sewa setelah diskon :" + hargaSetelahDiskon());
+        System.out.println("-------------------------------------------------------");
+    }
+}
